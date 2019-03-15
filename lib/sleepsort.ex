@@ -7,7 +7,7 @@ defmodule Sleepsort do
   @doc """
   Sort a list of numbers >= 0
   """
-  @spec sort(numbers :: list(number)) :: {:ok, list(number)} | {:error, any}
+  @spec sort(numbers :: list(number)) :: list(number)
   def sort(numbers) when is_list(numbers) do
     opts = [timeout: :infinity, ordered: false, max_concurrency: max(1, length(numbers))]
 
