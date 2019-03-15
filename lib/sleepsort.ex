@@ -8,10 +8,8 @@ defmodule Sleepsort do
   Sort a list of numbers >= 0
   """
   @spec sort(numbers :: list(number)) :: {:ok, list(number)} | {:error, any}
-  def sort([]), do: []
-
   def sort(numbers) when is_list(numbers) do
-    opts = [timeout: :infinity, ordered: false, max_concurrency: length(numbers)]
+    opts = [timeout: :infinity, ordered: false, max_concurrency: max(1, length(numbers))]
 
     numbers
     |> Task.async_stream(&sleepy/1, opts)
