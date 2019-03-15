@@ -12,12 +12,12 @@ jobs:
     steps:
       - checkout
       - save_cache:
-        key: v1-sleepsort-dialyzer-cache
-        paths:
-          - ~/repo/priv/plts
+          key: v1-sleepsort-dialyzer-cache
+          paths:
+            - ~/repo/priv/plts
       # specify any bash command here prefixed with `run: `
       - run: mix deps.get
       - run: make test
       - run: make dialyzer
       - restore_cache:
-        key: v1-sleepsort-dialyzer-cache
+          key: v1-sleepsort-dialyzer-cache
