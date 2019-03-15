@@ -21,9 +21,9 @@ defmodule Sleepsort do
     |> Enum.reverse()
   end
 
-  def sleepy(number) when is_number(number) and number >= 0 do
+  defp sleepy(input) when is_number(input) and input >= 0 do
     # Use a factor here to avoid issues with really close numbers
-    :timer.sleep(number * 2)
-    number
+    :timer.sleep(input * 2)
+    input
   end
 end
